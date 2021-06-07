@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "productos")
-public class Produto {
+public class Producto {
 
     @Id
     @GeneratedValue ( strategy = GenerationType.IDENTITY)
@@ -20,6 +20,10 @@ public class Produto {
     @Column(name = "cantidad_stock")
     private Integer cantidadStock;
     private Boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
 
     public Integer getIdProducto() {
         return idProducto;
